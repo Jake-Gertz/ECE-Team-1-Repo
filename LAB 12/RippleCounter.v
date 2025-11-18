@@ -19,7 +19,7 @@ module RippleCounter(
     
     T_FlipFlop T_FlipFlop3(
         .reset(btnU),
-        .T(T_FlipFlop2.Q),
+        .T(T_FlipFlop2.Q & T_FlipFlop1.Q),
         .E(btnC),
         .Q(Q[2])
     );

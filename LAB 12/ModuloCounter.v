@@ -26,6 +26,13 @@ module ModuloCounter(
         .Q(Q[2])
     );
     
+    T_FlipFlop TFlipFlop (
+        .reset(btnU),
+        .T(resetTrigger),
+        .E(btnC),
+        .Q(Q[3])
+    );
+    
     full_adder FullAdder1 (
         .A(DFlipFlop1.Q),
         .B(btnC),
@@ -45,7 +52,6 @@ module ModuloCounter(
     );
     
     assign resetTrigger = (DFlipFlop3.Q & DFlipFlop2.Q & ~DFlipFlop1.Q);
-    assign Q[3] = resetTrigger;
   
     
 endmodule
